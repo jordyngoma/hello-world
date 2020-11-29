@@ -1,0 +1,35 @@
+mysql> INSERT INTO school (name, country, capacity) VALUES ('BeauBatons', 'France', 550),('Castelobruxo', 'Brazil', 380), ('Durmstrang Institue', 'Norway', 570), ('Hogwarts School of Witchcraft and Wizardry', 'United Kingdom', 450), ('Ilvermorny School of Witchcraft and Wizardry', 'USA', 300), ('Koldovstoretz', 'Russia', 125), ('Mahoutokoro School of Magic', 'Japan', 800), ('Uagadou School of Magic', 'Uganda', 350);
+Query OK, 8 rows affected (0.19 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE school SET capacity=700 WHERE name='Mahoutokoro School of Magic'
+    -> ;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> DELETE FROM school WHERE name LIKE '%Magic';
+Query OK, 2 rows affected (0.17 sec)
+
+mysql> DESCRIBE school;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   |     | NULL    |                |
+| capacity | int          | YES  |     | NULL    |                |
+| country  | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM school;
++----+----------------------------------------------+----------+----------------+
+| id | name                                         | capacity | country        |
++----+----------------------------------------------+----------+----------------+
+|  1 | BeauBatons                                   |      550 | France         |
+|  2 | Castelobruxo                                 |      380 | Brazil         |
+|  3 | Durmstrang Institue                          |      570 | Norway         |
+|  4 | Hogwarts School of Witchcraft and Wizardry   |      450 | United Kingdom |
+|  5 | Ilvermorny School of Witchcraft and Wizardry |      300 | USA            |
+|  6 | Koldovstoretz                                |      125 | Russia         |
++----+----------------------------------------------+----------+----------------+
+6 rows in set (0.00 sec)
